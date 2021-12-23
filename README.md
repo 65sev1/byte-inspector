@@ -1,1 +1,1 @@
-# byte-inspector
+# ByteInspector
