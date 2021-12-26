@@ -24,3 +24,10 @@ pom.xml
 - developers
 - scm
 
+.gitignore
+-------------------
+
+Стоит внести в ignore каталоги
+
+- `/target`
+- `/.idea`
