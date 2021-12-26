@@ -2,6 +2,7 @@ package test_data;
 
 import java.io.File;
 
+@SuppressWarnings("ResultOfMethodCallIgnored")
 public class Example {
     private int var1 = 20;
 
