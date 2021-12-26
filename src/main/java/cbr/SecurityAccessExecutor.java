@@ -7,6 +7,7 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.function.Function;
 import java.util.function.Predicate;
+import java.util.stream.Collectors;
 
 public class SecurityAccessExecutor {
 
@@ -16,7 +17,7 @@ public class SecurityAccessExecutor {
 
     public void execute(int nThreads, Function<String, String> func, String path) throws InterruptedException {
         final List<Callable<String>> result = Search.files(path, f -> f.isFile() && f.getName().endsWith(".class")).stream()
-                .map(file -> (Callable<String>) () -> func.apply(file.getAbsolutePath())).toList();
+                .map(file -> (Callable<String>) () -> func.apply(file.getAbsolutePath())).collect(Collectors.toList());
         ExecutorService service = Executors.newFixedThreadPool(nThreads);
         service.invokeAll(result);
         service.shutdown();

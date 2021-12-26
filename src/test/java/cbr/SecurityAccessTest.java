@@ -22,6 +22,6 @@ class SecurityAccessTest {
             filters.validate(access);
             return "ok!";
         };
-        SecurityAccessExecutor.create().execute(Runtime.getRuntime().availableProcessors(), func, "C:/soft/workspace/byte-inspector/target/");
+        SecurityAccessExecutor.create().execute(Runtime.getRuntime().availableProcessors(), func, "target/classes/test/");
     }
 }
