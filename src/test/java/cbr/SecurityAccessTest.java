@@ -22,6 +22,6 @@ class SecurityAccessTest {
             filters.validate(access);
             return "ok!";
         };
-        SecurityAccessExecutor.create().execute(Runtime.getRuntime().availableProcessors(), func, "target/classes/test/");
+        SecurityAccessExecutor.create().execute(Runtime.getRuntime().availableProcessors(), func, "target/test-classes/test_data");
     }
 }

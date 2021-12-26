@@ -38,3 +38,4 @@ src
 * На 17 java скомпилировалось, но пришлось менять `toList` на `collect(Collectors.toList())`
 * Абсолютные пути зло  `SecurityAccessTest`
 * смена версии на java 11
+* тестовые данные следует держать в тестах `src/main/test` -> `src/test/java/test_data/Example`
