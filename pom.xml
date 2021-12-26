@@ -1,46 +1,210 @@
 <?xml version="1.0" encoding="UTF-8"?>
-<project xmlns="http://maven.apache.org/POM/4.0.0"
-         xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
-         xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
-    <modelVersion>4.0.0</modelVersion>
 
-    <groupId>org.byteinspector</groupId>
-    <artifactId>byte-inspector</artifactId>
-    <packaging>pom</packaging>
-    <version>1.0-SNAPSHOT</version>
-    <build>
-        <plugins>
-            <plugin>
-                <groupId>org.apache.maven.plugins</groupId>
-                <artifactId>maven-compiler-plugin</artifactId>
-                <configuration>
-                    <source>16</source>
-                    <target>16</target>
-                </configuration>
-            </plugin>
-        </plugins>
-    </build>
+<project xmlns="http://maven.apache.org/POM/4.0.0" xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+  xsi:schemaLocation="http://maven.apache.org/POM/4.0.0 http://maven.apache.org/xsd/maven-4.0.0.xsd">
+  <modelVersion>4.0.0</modelVersion>
 
-    <properties>
-        <maven.compiler.source>8</maven.compiler.source>
-        <maven.compiler.target>8</maven.compiler.target>
-    </properties>
+  <groupId>org.byteinspector</groupId>
+  <artifactId>byte-inspector</artifactId>
+  <version>1.0-SNAPSHOT</version>
+  <packaging>jar</packaging>
 
-    <dependencies>
+  <!-- Указать имя проекта, можно не указывать - тогда оно будет как artifactId -->
+  <!--  <name>sample</name>-->
 
-        <dependency>
-            <groupId>org.ow2.asm</groupId>
-            <artifactId>asm-tree</artifactId>
-            <version>9.2</version>
-        </dependency>
+  <!--  Тут указать описание проекта - 1 абзац.-->
+  <description>A simple sample.</description>
 
-        <dependency>
-            <groupId>org.junit.jupiter</groupId>
-            <artifactId>junit-jupiter-engine</artifactId>
-            <version>5.8.2</version>
-            <scope>test</scope>
-        </dependency>
+  <!--  ссылку на github pages-->
+  <url>http://www.example.com</url>
 
-    </dependencies>
+<!--  Лицензию указать следует-->
+<!--  <licenses>-->
+<!--    <license>-->
+<!--      <name>MIT License</name>-->
+<!--      <url>http://www.opensource.org/licenses/mit-license.php</url>-->
+<!--    </license>-->
+<!--  </licenses>-->
+
+<!--  Разработчиков указать-->
+<!--  <developers>-->
+<!--    <developer>-->
+<!--      <name>Georgiy P Kamnev</name>-->
+<!--      <email>nt.gocha@gmail.com</email>-->
+<!--      &lt;!&ndash; <organization>-none-</organization> &ndash;&gt;-->
+<!--      &lt;!&ndash; <organizationUrl>http://www.sonatype.com</organizationUrl> &ndash;&gt;-->
+<!--    </developer>-->
+<!--  </developers>-->
+
+  <!-- Подключение git для хранения исходников -->
+<!--  <scm>-->
+<!--    <connection>scm:git:git@github.com:${github.user}/${github.repo}.git</connection>-->
+<!--    <url>scm:git:git@github.com:${github.user}/${github.repo}.git</url>-->
+<!--    <developerConnection>scm:git:git@github.com:${github.user}/${github.repo}.git</developerConnection>-->
+<!--    <tag>HEAD</tag>-->
+<!--  </scm>-->
+
+  <properties>
+    <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
+    <maven.compiler.source>11</maven.compiler.source>
+    <maven.compiler.target>11</maven.compiler.target>
+
+<!--    Инфа из github-->
+<!--    <github.user>65sev1</github.user>-->
+<!--    <github.repo>byte-inspector</github.repo>-->
+
+    <project.reporting.outputEncoding>UTF-8</project.reporting.outputEncoding>
+<!--    <junit.version>5.4.0</junit.version>-->
+  </properties>
+
+  <dependencies>
+       <dependency>
+           <groupId>org.ow2.asm</groupId>
+           <artifactId>asm-tree</artifactId>
+           <version>9.2</version>
+       </dependency>
+       <dependency>
+           <groupId>org.junit.jupiter</groupId>
+           <artifactId>junit-jupiter-engine</artifactId>
+           <version>5.8.2</version>
+           <scope>test</scope>
+       </dependency>
+  </dependencies>
+
+  <build>
+    <pluginManagement><!-- lock down plugins versions to avoid using Maven defaults (may be moved to parent pom) -->
+      <plugins>
+        <plugin>
+          <artifactId>maven-clean-plugin</artifactId>
+          <version>3.1.0</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-site-plugin</artifactId>
+          <version>3.9.1</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-project-info-reports-plugin</artifactId>
+          <version>3.0.0</version>
+        </plugin>
+        <!-- see http://maven.apache.org/ref/current/maven-core/default-bindings.html#Plugin_bindings_for_jar_packaging -->
+        <plugin>
+          <artifactId>maven-resources-plugin</artifactId>
+          <version>3.0.2</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-compiler-plugin</artifactId>
+          <version>3.8.0</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-surefire-plugin</artifactId>
+          <version>2.22.1</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-jar-plugin</artifactId>
+          <version>3.0.2</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-install-plugin</artifactId>
+          <version>2.5.2</version>
+        </plugin>
+        <plugin>
+          <artifactId>maven-deploy-plugin</artifactId>
+          <version>2.8.2</version>
+        </plugin>
+      </plugins>
+    </pluginManagement>
+
+    <plugins>
+
+<!--      &lt;!&ndash; Архив исходников &ndash;&gt;-->
+<!--      <plugin>-->
+<!--        <groupId>org.apache.maven.plugins</groupId>-->
+<!--        <artifactId>maven-source-plugin</artifactId>-->
+<!--        <version>2.2.1</version>-->
+<!--        <executions>-->
+<!--          <execution>-->
+<!--            <id>attach-sources</id>-->
+<!--            <goals>-->
+<!--              <goal>jar-no-fork</goal>-->
+<!--            </goals>-->
+<!--          </execution>-->
+<!--        </executions>-->
+<!--      </plugin>-->
+
+<!--      &lt;!&ndash; Документация java исходников &ndash;&gt;-->
+<!--      <plugin>-->
+<!--        <groupId>org.apache.maven.plugins</groupId>-->
+<!--        <artifactId>maven-javadoc-plugin</artifactId>-->
+<!--        &lt;!&ndash;                        <version>2.9.1</version>&ndash;&gt;-->
+<!--        <version>3.2.0</version>-->
+<!--        <configuration>-->
+<!--          <javadocExecutable>${java.home}/bin/javadoc</javadocExecutable>-->
+<!--        </configuration>-->
+<!--        <executions>-->
+<!--          <execution>-->
+<!--            <id>attach-javadocs</id>-->
+<!--            <goals>-->
+<!--              <goal>jar</goal>-->
+<!--            </goals>-->
+<!--          </execution>-->
+<!--        </executions>-->
+<!--      </plugin>-->
+
+      <!--      junit-->
+      <!-- ============================ -->
+      <!--      <plugin>-->
+      <!--        <groupId>org.apache.maven.plugins</groupId>-->
+      <!--        <artifactId>maven-surefire-plugin</artifactId>-->
+      <!--        <version>3.0.0-M5</version>-->
+      <!--        <dependencies>-->
+      <!--          <dependency>-->
+      <!--            <groupId>org.junit.jupiter</groupId>-->
+      <!--            <artifactId>junit-jupiter-engine</artifactId>-->
+      <!--            <version>${junit.version}</version>-->
+      <!--          </dependency>-->
+      <!--        </dependencies>-->
+      <!--      </plugin>-->
+
+      <!-- md/html -->
+      <!-- ============================ -->
+<!--      <plugin>-->
+<!--        <groupId>org.apache.maven.plugins</groupId>-->
+<!--        <artifactId>maven-site-plugin</artifactId>-->
+<!--        &lt;!&ndash;        <version>3.9.1</version>&ndash;&gt;-->
+<!--        <dependencies>-->
+<!--          &lt;!&ndash; add optional Markdown processor &ndash;&gt;-->
+<!--          <dependency>-->
+<!--            <groupId>org.apache.maven.doxia</groupId>-->
+<!--            <artifactId>doxia-module-markdown</artifactId>-->
+<!--            <version>1.9.1</version>-->
+<!--          </dependency>-->
+<!--        </dependencies>-->
+<!--        <configuration>-->
+<!--          <inputEncoding>UTF-8</inputEncoding>-->
+<!--          <outputEncoding>UTF-8</outputEncoding>-->
+<!--          <generateReports>true</generateReports>-->
+<!--        </configuration>-->
+<!--        <executions>-->
+<!--          <execution>-->
+<!--            <id>gen-docs</id>-->
+<!--            <phase>package</phase>-->
+<!--            <goals>-->
+<!--              <goal>site</goal>-->
+<!--            </goals>-->
+<!--          </execution>-->
+<!--        </executions>-->
+<!--      </plugin>-->
+
+    </plugins>
+  </build>
+
+  <reporting>
+    <plugins>
+      <plugin>
+        <artifactId>maven-project-info-reports-plugin</artifactId>
+      </plugin>
+    </plugins>
+  </reporting>
+
 
 </project>
