@@ -21,6 +21,6 @@ class SecurityAccessTest {
             return "ok!";
         };
         SecurityAccessExecutor.create().execute(Runtime.getRuntime().availableProcessors(), func, "target/test-classes/test_data");*/
-        SecurityAccess.inspect("path");
+        SecurityAccess.inspect("target/test-classes/test_data/TestClass1.class");
     }
 }

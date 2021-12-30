@@ -1,4 +1,4 @@
-package test;
+package test_data;
 
 import org.jetbrains.annotations.NotNull;
 
@@ -7,6 +7,7 @@ import java.util.ArrayList;
 
 @NotNull(value="TestClass1 annotation")
 public class TestClass1<GENERIC> {
+    @NotNull(value="TestClass1.var1 field annotation")
     private int var1 = 20;
 
     public static int method1() {

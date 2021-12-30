@@ -22,8 +22,6 @@ public class Method extends Access {
         return signature;
     }
 
-
-
     public boolean isDefault() {
         return access == 0;
     }
