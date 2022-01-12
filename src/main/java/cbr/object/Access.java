@@ -1,4 +1,4 @@
-package cbr.access;
+package cbr.object;
 
 public abstract class Access {
     protected final String name;

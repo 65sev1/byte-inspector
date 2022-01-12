@@ -1,4 +1,4 @@
-package cbr.access;
+package cbr.object;
 
 public class Field extends AccessInsns {
 

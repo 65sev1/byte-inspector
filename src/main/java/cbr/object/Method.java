@@ -1,4 +1,4 @@
-package cbr.access;
+package cbr.object;
 
 public class Method extends Access {
     protected int access;

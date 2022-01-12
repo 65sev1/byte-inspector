@@ -18,6 +18,25 @@
   <!--  ссылку на github pages-->
   <url>http://www.example.com</url>
 
+  <profiles>
+
+    <profile>
+      <id>qwe</id>
+      <activation>
+        <file>
+          <exists></exists>
+        </file>
+      </activation>
+
+      <build>
+        <directory>
+
+        </directory>
+      </build>
+    </profile>
+
+  </profiles>
+
 <!--  Лицензию указать следует-->
 <!--  <licenses>-->
 <!--    <license>-->
@@ -201,6 +220,14 @@
 <!--        </executions>-->
 <!--      </plugin>-->
 
+      <plugin>
+        <groupId>org.apache.maven.plugins</groupId>
+        <artifactId>maven-compiler-plugin</artifactId>
+        <configuration>
+          <source>10</source>
+          <target>10</target>
+        </configuration>
+      </plugin>
     </plugins>
   </build>
 
@@ -208,6 +235,8 @@
     <plugins>
       <plugin>
         <artifactId>maven-project-info-reports-plugin</artifactId>
+        <version>3.1.2</version>
+        <groupId>org.apache.maven.plugins</groupId>
       </plugin>
     </plugins>
   </reporting>

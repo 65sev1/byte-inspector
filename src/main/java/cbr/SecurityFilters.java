@@ -1,9 +1,9 @@
 package cbr;
 
-import cbr.access.Access;
-import cbr.access.Field;
-import cbr.access.Invoke;
-import cbr.access.Method;
+import cbr.object.Access;
+import cbr.object.Field;
+import cbr.object.Invoke;
+import cbr.object.Method;
 
 import java.util.ArrayList;
 import java.util.Collections;

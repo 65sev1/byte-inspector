@@ -19,8 +19,8 @@ class SecurityAccessTest {
                     .build();
             filters.validate(access);
             return "ok!";
-        };
-        SecurityAccessExecutor.create().execute(Runtime.getRuntime().availableProcessors(), func, "target/test-classes/test_data");*/
-        SecurityAccess.inspect("target/test-classes/test_data/TestClass1.class");
+        };*/
+        //SecurityAccessExecutor.create().execute(Runtime.getRuntime().availableProcessors(), func, "target/test-classes/test_data");
+        SecurityAccess.inspect("target/test-classes/test_data/Example.class");
     }
 }

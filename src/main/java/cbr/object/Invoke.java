@@ -1,4 +1,4 @@
-package cbr.access;
+package cbr.object;
 
 public class Invoke extends AccessInsns {
     private final boolean isInterface;
